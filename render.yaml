@@ -2,9 +2,9 @@ services:
   - type: web
     name: john-wine-service
     env: python
+    runtime: python-3.10
     buildCommand: pip install -r requirements.txt
     startCommand: bash start.sh
     envVars:
       - key: PORT
         value: 10000
-    runtime: python-3.10
