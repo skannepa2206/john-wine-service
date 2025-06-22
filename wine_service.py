@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import joblib
 import numpy as np
+import os
 
 app = FastAPI(title="John's Wine Quality Prediction Service 🍷")
 
@@ -64,4 +65,5 @@ def predict_wine_quality(wine: WineChemicalProfile):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=3333)
+    port = int(os.environ.get("PORT", 10000))  # Use default if not set
+    uvicorn.run(app, host="0.0.0.0", port=port)
